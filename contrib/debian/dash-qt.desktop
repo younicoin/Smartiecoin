@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Smartiecoin
+Comment=Smartiecoin P2P Cryptocurrency
+Comment[fr]=Smartiecoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Smartiecoin, eşten eşe kriptografik sanal para birimi
+Exec=smartiecoin-qt %u
+Terminal=false
+Type=Application
+Icon=smartiecoin128
+MimeType=x-scheme-handler/smartiecoin;
+Categories=Office;Finance;

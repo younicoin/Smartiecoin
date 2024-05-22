@@ -1,0 +1,20 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/smartiecoin_bg.qm</file>
+        <file alias="de">locale/smartiecoin_de.qm</file>
+        <file alias="en">locale/smartiecoin_en.qm</file>
+        <file alias="es">locale/smartiecoin_es.qm</file>
+        <file alias="fi">locale/smartiecoin_fi.qm</file>
+        <file alias="fr">locale/smartiecoin_fr.qm</file>
+        <file alias="it">locale/smartiecoin_it.qm</file>
+        <file alias="ja">locale/smartiecoin_ja.qm</file>
+        <file alias="pl">locale/smartiecoin_pl.qm</file>
+        <file alias="pt">locale/smartiecoin_pt.qm</file>
+        <file alias="ru">locale/smartiecoin_ru.qm</file>
+        <file alias="sk">locale/smartiecoin_sk.qm</file>
+        <file alias="sv">locale/smartiecoin_sv.qm</file>
+        <file alias="vi">locale/smartiecoin_vi.qm</file>
+        <file alias="zh_CN">locale/smartiecoin_zh_CN.qm</file>
+        <file alias="zh_TW">locale/smartiecoin_zh_TW.qm</file>
+    </qresource>
+</RCC>
