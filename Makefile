@@ -228,8 +228,7 @@ am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/src/config/smartiecoin-config.h.in \
 	$(top_srcdir)/src/test/buildenv.py.in COPYING INSTALL \
 	build-aux/compile build-aux/config.guess build-aux/config.sub \
-	build-aux/depcomp build-aux/install-sh build-aux/ltmain.sh \
-	build-aux/missing
+	build-aux/install-sh build-aux/ltmain.sh build-aux/missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -271,13 +270,13 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/build-aux/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/Smartiecoin/build-aux/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 AR = /usr/bin/ar
-AUTOCONF = ${SHELL} /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/build-aux/missing automake-1.15
+AUTOCONF = ${SHELL} /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/Smartiecoin/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/Smartiecoin/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/Smartiecoin/build-aux/missing automake-1.15
 AWK = mawk
 BDB_CPPFLAGS = 
 BDB_LIBS = -ldb_cxx-4.8
@@ -366,7 +365,7 @@ LTLIBOBJS =
 LT_SYS_LIBRARY_PATH = 
 LUPDATE = /usr/lib/qt5/bin/lupdate
 MAINT = 
-MAKEINFO = ${SHELL} /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/build-aux/missing makeinfo
+MAKEINFO = ${SHELL} /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/Smartiecoin/build-aux/missing makeinfo
 MAKENSIS = 
 MANIFEST_TOOL = :
 MINIUPNPC_CPPFLAGS = 
@@ -452,10 +451,10 @@ X11XCB_LIBS =
 XGETTEXT = /usr/bin/xgettext
 ZMQ_CFLAGS = 
 ZMQ_LIBS = 
-abs_builddir = /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new
-abs_srcdir = /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new
-abs_top_builddir = /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new
-abs_top_srcdir = /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new
+abs_builddir = /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/Smartiecoin
+abs_srcdir = /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/Smartiecoin
+abs_top_builddir = /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/Smartiecoin
+abs_top_srcdir = /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/Smartiecoin
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -487,7 +486,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/build-aux/install-sh
+install_sh = ${SHELL} /home/pool/smartiecoin/Smartiecoin/Smartiecoin-new/Smartiecoin/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

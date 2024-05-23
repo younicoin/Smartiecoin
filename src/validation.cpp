@@ -1229,29 +1229,26 @@ double ConvertBitsToDouble(unsigned int nBits)
 
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 {
-    // Calculate the number of times halving has occurred
-    int halvings = (nPrevHeight + 1) / consensusParams.nSubsidyHalvingInterval; // Adding 1 to account for the first block
+    
+    CAmount nSubsidyBase;
 
-    // Force block reward to zero when right shift is undefined.
-    if (halvings >= 64)
-        return 0;
-
-    // Initialize subsidy base to 10 coins per block
-    CAmount nSubsidyBase = 10 * COIN;
-
-    // Apply halving every 210,000 blocks
-    nSubsidyBase >>= halvings;
-
-    // Set the subsidy to 10 million coins for the first block
-    if (nPrevHeight == 0) // Assuming genesis block is at height 0
-    {
-        nSubsidyBase = 10000000 * COIN;
+    if(nPrevHeight < 1) {
+		nSubsidyBase = 10000000 ;
+	}
+        else {
+            if ((nPrevHeight >= 1) && (nPrevHeight < 1000000)) nSubsidyBase = 10;
+            if ((nPrevHeight >= 1000000) && (nPrevHeight < 2000000)) nSubsidyBase = 5;
+            if ((nPrevHeight >= 2000000) && (nPrevHeight < 3000000)) nSubsidyBase = 2.5;
+            if ((nPrevHeight >= 3000000) && (nPrevHeight < 4000000)) nSubsidyBase = 1.25;
+            if ((nPrevHeight >= 4000000) && (nPrevHeight < 5000000)) nSubsidyBase = 0.75;
+            
     }
 
-    // Calculate the superblock part (not sure if this part is necessary for block subsidies)
-    CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidyBase * 0 : 0;
+    CAmount nSubsidy = nSubsidyBase * COIN;
 
-    return fSuperblockPartOnly ? nSuperblockPart : nSubsidyBase - nSuperblockPart;
+    CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidy*0 : 0;
+
+    return fSuperblockPartOnly ? nSuperblockPart : nSubsidy - nSuperblockPart;
 }
 
 
@@ -1277,7 +1274,7 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
     }
 
 
-    ret = blockValue * 0.4;
+    ret = blockValue * 1.0;
        
     return ret;
 }
