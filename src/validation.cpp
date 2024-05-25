@@ -37,7 +37,9 @@
 #include "utilstrencodings.h"
 #include "validationinterface.h"
 #include "versionbits.h"
-
+#include "amount.h"
+#include "consensus/params.h"
+#include <iostream>
 #include "instantx.h"
 #include "masternodeman.h"
 #include "masternode-payments.h"
@@ -1229,26 +1231,33 @@ double ConvertBitsToDouble(unsigned int nBits)
 
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 {
-    
-    CAmount nSubsidyBase;
+    // Base subsidy starts at 10 COIN units
+    CAmount nSubsidyBase = 20 * COIN;
 
-    if(nPrevHeight < 1) {
-		nSubsidyBase = 10000000 ;
-	}
-        else {
-            if ((nPrevHeight >= 1) && (nPrevHeight < 1000000)) nSubsidyBase = 10;
-            if ((nPrevHeight >= 1000000) && (nPrevHeight < 2000000)) nSubsidyBase = 5;
-            if ((nPrevHeight >= 2000000) && (nPrevHeight < 3000000)) nSubsidyBase = 2.5;
-            if ((nPrevHeight >= 3000000) && (nPrevHeight < 4000000)) nSubsidyBase = 1.25;
-            if ((nPrevHeight >= 4000000) && (nPrevHeight < 5000000)) nSubsidyBase = 0.75;
-            
+    std::cout << "Initial Subsidy Base: " << nSubsidyBase << std::endl;
+
+    // Calculate the number of halvings
+    int halvings = nPrevHeight / 1000000;
+
+    std::cout << "Number of Halvings: " << halvings << std::endl;
+
+    // Apply the halving factor
+    nSubsidyBase >>= halvings;
+
+    std::cout << "Subsidy Base After Halving: " << nSubsidyBase << std::endl;
+
+    // Ensure the subsidy does not go below 1 satoshi
+    if (nSubsidyBase < 1) {
+        nSubsidyBase = 1;
     }
 
-    CAmount nSubsidy = nSubsidyBase * COIN;
+    std::cout << "Final Subsidy Base: " << nSubsidyBase << std::endl;
 
-    CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidy*0 : 0;
+    // Calculate the superblock part if applicable
+    CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidyBase * 0 : 0;
 
-    return fSuperblockPartOnly ? nSuperblockPart : nSubsidy - nSuperblockPart;
+    // Return the final subsidy amount
+    return fSuperblockPartOnly ? nSuperblockPart : nSubsidyBase - nSuperblockPart;
 }
 
 
@@ -1274,7 +1283,7 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
     }
 
 
-    ret = blockValue * 1.0;
+    ret = blockValue * 0.5;
        
     return ret;
 }

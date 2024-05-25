@@ -95,7 +95,7 @@ public:
         consensus.nMasternodePaymentsIncreasePeriod = 262800;
         consensus.nInstantSendKeepLock = 24;
         consensus.nBudgetPaymentsStartBlock = 99999999;
-        consensus.nBudgetPaymentsCycleBlocks = 10;
+        consensus.nBudgetPaymentsCycleBlocks = 21600;
         consensus.nBudgetPaymentsWindowBlocks = 100;
         consensus.nBudgetProposalEstablishingTime = 60*60*24;
         consensus.nSuperblockStartBlock = 99999999;
@@ -234,7 +234,7 @@ public:
         consensus.nMasternodePaymentsIncreaseBlock = 100;
         consensus.nMasternodePaymentsIncreasePeriod = 100;
         consensus.nInstantSendKeepLock = 6;
-        consensus.nBudgetPaymentsStartBlock = 4100;
+        consensus.nBudgetPaymentsStartBlock = 1000;
         consensus.nBudgetPaymentsCycleBlocks = 50;
         consensus.nBudgetPaymentsWindowBlocks = 10;
         consensus.nBudgetProposalEstablishingTime = 60*20;
@@ -249,8 +249,8 @@ public:
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("0x00056ccc9f59bc9e189989e73582e9a51a5b7190a2f6529ff1c6c93f7555a35f");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 24 * 60 * 60; // Smartiecoin: 1 day
-        consensus.nPowTargetSpacing = 1.0 * 60; // almost 1.0 minutes
+        consensus.nPowTargetTimespan = 60 * 60;
+        consensus.nPowTargetSpacing = 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 0;

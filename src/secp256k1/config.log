@@ -894,7 +894,6 @@ on wallet
 config.status:1143: creating Makefile
 config.status:1143: creating libsecp256k1.pc
 config.status:1143: creating src/libsecp256k1-config.h
-config.status:1324: src/libsecp256k1-config.h is unchanged
 config.status:1372: executing depfiles commands
 config.status:1372: executing libtool commands
 
