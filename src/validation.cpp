@@ -1234,24 +1234,24 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     // Base subsidy starts at 10 COIN units
     CAmount nSubsidyBase = 20 * COIN;
 
-    std::cout << "Initial Subsidy Base: " << nSubsidyBase << std::endl;
+   // std::cout << "Initial Subsidy Base: " << nSubsidyBase << std::endl;
 
     // Calculate the number of halvings
     int halvings = nPrevHeight / 1000000;
 
-    std::cout << "Number of Halvings: " << halvings << std::endl;
+   // std::cout << "Number of Halvings: " << halvings << std::endl;
 
     // Apply the halving factor
     nSubsidyBase >>= halvings;
 
-    std::cout << "Subsidy Base After Halving: " << nSubsidyBase << std::endl;
+   // std::cout << "Subsidy Base After Halving: " << nSubsidyBase << std::endl;
 
     // Ensure the subsidy does not go below 1 satoshi
     if (nSubsidyBase < 1) {
         nSubsidyBase = 1;
     }
 
-    std::cout << "Final Subsidy Base: " << nSubsidyBase << std::endl;
+   // std::cout << "Final Subsidy Base: " << nSubsidyBase << std::endl;
 
     // Calculate the superblock part if applicable
     CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidyBase * 0 : 0;
