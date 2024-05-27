@@ -64,11 +64,20 @@ bool IsBlockValueValid(const CBlock& block, int nBlockHeight, CAmount blockRewar
             return true;
         }
         // LogPrint("gobject", "IsBlockValueValid -- Block is not in budget cycle window, checking block value against block reward\n");
-        if(!isBlockRewardValueMet) {
-            strErrorRet = strprintf("coinbase pays too much at height %d (actual=%d vs limit=%d), exceeded block reward, block is not in budget cycle window",
-                                    nBlockHeight, block.vtx[0].GetValueOut(), blockReward);
-        }
-        return isBlockRewardValueMet;
+        bool isBlockRewardValueMet = (block.vtx[0].GetValueOut() <= blockReward);
+
+if (nBlockHeight > 15000 && !isBlockRewardValueMet) {
+    strErrorRet = strprintf("coinbase pays too much at height %d (actual=%d vs limit=%d), exceeded block reward, block is not in budget cycle window",
+                            nBlockHeight, block.vtx[0].GetValueOut(), blockReward);
+    return false;
+}
+
+// Allow blocks below or equal to 15000 regardless of reward value
+if (nBlockHeight <= 15000) {
+    isBlockRewardValueMet = true;
+}
+
+return isBlockRewardValueMet;
     }
 
     // superblocks started

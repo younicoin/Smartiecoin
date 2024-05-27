@@ -165,6 +165,8 @@ public:
 
       consensus.hashGenesisBlock = genesis.GetHash();
 
+
+
         assert(consensus.hashGenesisBlock == uint256S("0x00003b062bf863d53f531115d7cd56b7d70f34203d5b2a88a3c975cd39ede5ed"));
         assert(genesis.hashMerkleRoot == uint256S("0x233980ab7b1153d283b0d20e9a7901fe4a5e1d9355f6b67b5d42d60a9d8a8caf"));
 
